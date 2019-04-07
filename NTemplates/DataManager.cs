@@ -131,12 +131,12 @@ namespace NTemplates
 
                         System.IO.MemoryStream stream = new System.IO.MemoryStream();
                         Image img = (Image)theValue;
-                        img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                         byte[] bytes = stream.ToArray();
 
                         string str = BitConverter.ToString(bytes, 0).Replace("-", string.Empty).Trim();
-                        string mpic = @"{\pict\pngblip\picscalex100\picscaley100\picw" +
+                        string mpic = @"{\pict\jpegblip\picscalex100\picscaley100\picw" +
                             (img.Width).ToString().Trim() + @"\pich" + (img.Height).ToString().Trim() +
                             @"\picwgoal" + (img.Width * 15).ToString().Trim() + @"\pichgoal" + (img.Height * 15).ToString().Trim() +
                             @"\hex " + str + "}";
